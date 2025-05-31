@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Graduate Dindaa <3 🎓</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #d6f5f5);
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      color: #5c4d7d;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      margin-top: 50px;
+      color: #f49ac2;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      color: #ffb3b3;
+      margin-top: 10px;
+    }
+
+    .graduate-img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+    }
+
+    .arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1.4em;
+      color: #a084ca;
+      margin-top: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 0 20px;
+      line-height: 1.8;
+      color: #7a5c61;
+    }
+
+    .btn-share {
+      background-color: #f7c5cc;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1em;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background-color 0.3s;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+    }
+
+    .btn-share:hover {
+      background-color: #f4a1b6;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ffcce0;
+      border-radius: 50%;
+      animation: fall 6s infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(800px); opacity: 0; }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #e989b9;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKSOUND MUSIC dengan autoplay dan loop -->
+  <audio id="backsound" autoplay loop>
+    <source src="backsound.mp3" type="audio/mp3">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <!-- Fallback jika autoplay gagal -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backsound = document.getElementById('backsound');
+      const playPromise = backsound.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log('Autoplay diblokir, aktifkan suara manual dengan klik halaman.');
+          document.body.addEventListener('click', () => {
+            backsound.play();
+          });
+        });
+      }
+    });
+  </script>
+
+  <h1>Happy Graduate yaa 🎓</h1>
+  <h2>Akhire lulus juga Dinn🎓</h2>
+
+  <img src="Dinda.jpg" alt="Foto Wisuda Dinda" class="graduate-img">
+
+  <div class="arabic">
+    مَنْ جَدَّ وَجَدَ<br>
+    <span style="font-size: 0.9em;">"Siapa yang bersungguh-sungguh, maka ia akan berhasil."</span>
+  </div>
+
+  <p>
+    Barakallahu fiikum atas pencapaianmu hari ini.  
+    Semoga ilmu yang kamu raih membawa berkah, manfaat, dan menjadi jalan menuju ridha Allah.  
+    Kami bangga atas semangat, ketekunan, dan adab yang selalu kamu jaga selama ini.
+  </p>
+
+  <p>
+    Jangan berhenti belajar. Jangan lelah jadi teladan.  
+    Dunia baru menunggumu, dan insyaAllah langkahmu akan selalu dalam penjagaan-Nya.  
+    Selamat wisuda, Dindaa. 
+    “Ingat, tidak ada kegagalan yang sia-sia. Kamu sudah belajar, berusaha, dan bertumbuh. 
+    Jalanmu mungkin berbeda, tapi bukan berarti lebih buruk. Teruslah bermimpi, teruslah berjuang!”
+    SEMANGAT DAN SUKSES SELALUUU!!!!!
+  </p>
+
+  <button class="btn-share" onclick="share()">📱 Bagikan Ucapan</button>
+
+  <footer>
+    Dibuat penuh doa oleh Cerizz🤍 | 2025
+  </footer>
+
+  <script>
+    function createConfetti() {
+      for (let i = 0; i < 80; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(confetti);
+      }
+    }
+
+    function share() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Selamat Wisuda 🎓',
+          text: 'Ucapan spesial untuk Riza, semoga berkah dan sukses selalu 🤍',
+          url: window.location.href
+        });
+      } else {
+        alert('Fitur share belum tersedia di browser ini, silakan salin link secara manual.');
+      }
+    }
+
+    window.onload = createConfetti;
+  </script>
+</body>
+</html>
